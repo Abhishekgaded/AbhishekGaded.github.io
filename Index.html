@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Barcode_Generator</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div>
+        BarCode Generator
+    </div>
+    <input type="text" placeholder="Type Here"/>
+    <button onclick="Generate()">Generate BarCode</button>
+    <svg id = "barcode"></svg>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.0/JsBarcode.all.min.js"></script>
+    <script>
+        JsBarcode("#barcode","#Hello",{
+            background:"#161748",
+            lineColor:"#ffffff"
+        });
+        function Generate(){
+            var val = document.querySelector("input").value
+            if(val == ""){
+                val = "Hello!"
+            }
+            JsBarcode("#barcode",val,{
+                background:"#161748",
+                lineColor:"#ffffff"
+            });
+        }
+    </script>
+</body>
+</html>
